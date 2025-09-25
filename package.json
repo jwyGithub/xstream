@@ -1,7 +1,7 @@
 {
     "name": "@jiangweiye/xstream",
     "type": "module",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A powerful stream data processing library for parsing and processing Server-Sent Events (SSE) format data, supporting custom separators, asynchronous iterators, and event callbacks.",
     "author": "jiangweiye <jiangweiye@outlook.com> (https://github.com/jwyGithub)",
     "license": "SEE LICENSE IN LICENSE.md",
