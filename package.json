@@ -1,5 +1,5 @@
 {
-    "name": "@yuki/xstream",
+    "name": "@jiangweiye/xstream",
     "type": "module",
     "version": "0.0.1",
     "description": "A powerful stream data processing library for parsing and processing Server-Sent Events (SSE) format data, supporting custom separators, asynchronous iterators, and event callbacks.",
