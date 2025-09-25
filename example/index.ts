@@ -14,7 +14,7 @@ function isJson(v: string) {
 let d = '';
 
 function onSSEOutput(output: SSEOutput) {
-    console.log('onSSEOutput', output.data);
+    console.log('onSSEOutput', output);
 }
 
 function onSSEError(error: Error) {
