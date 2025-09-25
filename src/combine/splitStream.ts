@@ -2,9 +2,9 @@ import { DEFAULT_STREAM_SEPARATOR } from '../const';
 
 /**
  * @description 分割流，将流按指定分割符分割成多个部分
- * @param {string} [separator='\n\n'] 分割符，默认为双换行符
+ * @param {string} [separator] 分割符，默认为双换行符
  * @returns {TransformStream<string, string>} 返回分割后的流
- * 
+ *
  * @example
  * // 基础用法：按双换行符分割SSE流
  * ```typescript
@@ -15,10 +15,10 @@ import { DEFAULT_STREAM_SEPARATOR } from '../const';
  *     controller.close();
  *   }
  * });
- * 
+ *
  * const splitStream = splitStream();
  * const result = stream.pipeThrough(splitStream);
- * 
+ *
  * const reader = result.getReader();
  * while (true) {
  *   const { done, value } = await reader.read();
@@ -26,7 +26,7 @@ import { DEFAULT_STREAM_SEPARATOR } from '../const';
  *   console.log('分割的部分:', value); // 'data: message1', 'data: message2'
  * }
  * ```
- * 
+ *
  * @example
  * // 自定义分割符：按CRLF分割
  * ```typescript
@@ -37,10 +37,10 @@ import { DEFAULT_STREAM_SEPARATOR } from '../const';
  *     controller.close();
  *   }
  * });
- * 
+ *
  * const splitStream = splitStream('\r\n\r\n');
  * const result = stream.pipeThrough(splitStream);
- * 
+ *
  * const reader = result.getReader();
  * while (true) {
  *   const { done, value } = await reader.read();

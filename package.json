@@ -1,17 +1,38 @@
 {
     "name": "@yuki/xstream",
     "type": "module",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "packageManager": "pnpm@10.12.1",
-    "description": "",
-    "author": "",
-    "license": "ISC",
-    "keywords": [],
-    "main": "index.js",
+    "description": "A powerful stream data processing library for parsing and processing Server-Sent Events (SSE) format data, supporting custom separators, asynchronous iterators, and event callbacks.",
+    "author": "jiangweiye <jiangweiye@outlook.com> (https://github.com/jwyGithub)",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "homepage": "https://github.com/jwyGithub/xstream",
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "sse",
+        "stream",
+        "xstream"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/types/src/index.d.ts",
+            "import": "./dist/xstream.es.js",
+            "require": "./dist/xstream.cjs.js"
+        }
+    },
+    "main": "./dist/xstream.cjs.js",
+    "module": "./dist/xstream.es.js",
+    "types": "./dist/types/src/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "vite build",
         "format": "prettier --write .",
         "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
         "test": "vitest",
         "test:run": "vitest run",
         "test:coverage": "vitest run --coverage"
@@ -21,11 +42,20 @@
         "@jiangweiye/prettier-config": "^0.0.18",
         "@jiangweiye/tsconfig": "^0.0.11",
         "@types/node": "^24.5.2",
+        "bumpp": "^10.2.3",
         "eslint": "^9.36.0",
+        "lint-staged": "^16.2.0",
         "prettier": "^3.6.2",
+        "standard-version": "^9.5.0",
         "typescript": "^5.9.2",
         "unplugin-dts": "1.0.0-beta.6",
         "vite": "^7.1.7",
         "vitest": "^3.2.4"
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
+            "pnpm lint",
+            "pnpm prettier"
+        ]
     }
 }

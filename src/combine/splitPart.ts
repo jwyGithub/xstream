@@ -3,10 +3,10 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
 
 /**
  * @description 解析SSE格式数据，将文本按行分割并解析为键值对对象
- * @param {string} [separator='\n'] 行分割符，默认为换行符
- * @param {string} [kvSeparator=':'] 键值分割符，默认为冒号
+ * @param {string} [separator] 行分割符，默认为换行符
+ * @param {string} [kvSeparator] 键值分割符，默认为冒号
  * @returns {TransformStream<string, SSEOutput>} 返回解析后的SSE事件对象流
- * 
+ *
  * @example
  * // 基础用法：解析标准SSE格式
  * ```typescript
@@ -17,10 +17,10 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *     controller.close();
  *   }
  * });
- * 
+ *
  * const splitPart = splitPart();
  * const result = stream.pipeThrough(splitPart);
- * 
+ *
  * const reader = result.getReader();
  * while (true) {
  *   const { done, value } = await reader.read();
@@ -29,7 +29,7 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *   // 输出: { data: 'Hello World', event: 'message', id: '1' }
  * }
  * ```
- * 
+ *
  * @example
  * // 自定义分割符：解析等号分隔的格式
  * ```typescript
@@ -40,10 +40,10 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *     controller.close();
  *   }
  * });
- * 
+ *
  * const splitPart = splitPart('\n', '=');
  * const result = stream.pipeThrough(splitPart);
- * 
+ *
  * const reader = result.getReader();
  * while (true) {
  *   const { done, value } = await reader.read();
@@ -52,7 +52,7 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *   // 输出: { data: 'Test Message', event: 'custom', id: '123' }
  * }
  * ```
- * 
+ *
  * @example
  * // 处理不完整的SSE数据
  * ```typescript
@@ -63,10 +63,10 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *     controller.close();
  *   }
  * });
- * 
+ *
  * const splitPart = splitPart();
  * const result = stream.pipeThrough(splitPart);
- * 
+ *
  * const reader = result.getReader();
  * while (true) {
  *   const { done, value } = await reader.read();
@@ -75,7 +75,7 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *   // 输出: { data: 'Incomplete Message' }
  * }
  * ```
- * 
+ *
  * @example
  * // 忽略无效行和空行
  * ```typescript
@@ -86,10 +86,10 @@ import { DEFAULT_KV_SEPARATOR, DEFAULT_PART_SEPARATOR } from '../const';
  *     controller.close();
  *   }
  * });
- * 
+ *
  * const splitPart = splitPart();
  * const result = stream.pipeThrough(splitPart);
- * 
+ *
  * const reader = result.getReader();
  * while (true) {
  *   const { done, value } = await reader.read();
