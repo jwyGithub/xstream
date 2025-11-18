@@ -16,11 +16,11 @@
 ## 📦 安装
 
 ```bash
-npm install @yuki/xstream
+npm install @janone/xstream
 # 或
-pnpm add @yuki/xstream
+pnpm add @janone/xstream
 # 或
-yarn add @yuki/xstream
+yarn add @janone/xstream
 ```
 
 ## 🚀 快速开始
@@ -28,7 +28,7 @@ yarn add @yuki/xstream
 ### 基础用法
 
 ```typescript
-import { XStream } from '@yuki/xstream';
+import { XStream } from '@janone/xstream';
 
 // 从 fetch 响应创建流
 const response = await fetch('/api/events');
@@ -49,7 +49,7 @@ for await (const event of stream) {
 ### 处理标准 SSE 格式
 
 ```typescript
-import { XStream } from '@yuki/xstream';
+import { XStream } from '@janone/xstream';
 
 const stream = XStream({
     readableStream: response.body!,
@@ -80,7 +80,7 @@ for await (const event of stream) {
 ### 自定义分割符
 
 ```typescript
-import { XStream } from '@yuki/xstream';
+import { XStream } from '@janone/xstream';
 
 // 处理非标准 SSE 格式（如使用 CRLF 和等号分隔）
 const stream = XStream({
@@ -98,7 +98,7 @@ for await (const event of stream) {
 ### 使用自定义 TransformStream
 
 ```typescript
-import { XStream } from '@yuki/xstream';
+import { XStream } from '@janone/xstream';
 
 // 创建 JSON 解析转换流
 const jsonTransform = new TransformStream({
@@ -126,7 +126,7 @@ for await (const jsonData of stream) {
 ### 中断控制
 
 ```typescript
-import { XStream } from '@yuki/xstream';
+import { XStream } from '@janone/xstream';
 
 const abortController = new AbortController();
 
